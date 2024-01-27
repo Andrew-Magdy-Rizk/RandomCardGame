@@ -47,7 +47,12 @@ header {
   padding: 10px 15px;
   background-color: #fff;
 }
-
+@media (max-width: 767px) {
+  header {
+    max-width: 90%;
+    font-size: 18px;
+  }
+}
 .game-blocks {
   width: 1080px;
   margin: 20px auto;
@@ -60,6 +65,13 @@ header {
 .game-blocks.no-clicking {
   pointer-events: none;
 }
+
+@media (max-width: 767px) {
+  .game-blocks {
+    max-width: 90%;
+  }
+}
+
 .info-card {
   height: 205px;
   width: 145px;
@@ -100,4 +112,17 @@ header {
 .info-card.is-matched {
   transform: rotateY(180deg);
   pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .info-card {
+    height: 100px;
+    width: 70px;
+  }
+  .info-card .front {
+    line-height: 100px;
+  }
+  .info-card .front:before {
+    font-size: 80px;
+  }
 }
