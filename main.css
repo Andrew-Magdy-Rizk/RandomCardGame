@@ -52,6 +52,9 @@ header {
     max-width: 90%;
     font-size: 18px;
   }
+  .control-game span {
+    font-size: 25px;
+  }
 }
 .game-blocks {
   width: 1080px;
@@ -68,7 +71,7 @@ header {
 
 @media (max-width: 767px) {
   .game-blocks {
-    max-width: 90%;
+    max-width: 95%;
   }
 }
 
