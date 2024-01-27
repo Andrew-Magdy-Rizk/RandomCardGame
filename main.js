@@ -7,6 +7,10 @@ document.querySelector(".tries span").innerHTML = tries;
 // Manager Game Zone
 let getBlockGame = document.querySelector(".game-blocks");
 
+// Manager Timer
+timer = 60;
+let GetSpanTimer = document.querySelector(`.time-out span`);
+
 // Manager Start Game
 document.querySelector(".control-game span").onclick = function () {
   let getName = prompt("Whats Your Name ?");
@@ -20,6 +24,7 @@ document.querySelector(".control-game span").onclick = function () {
   }
 
   document.querySelector(".control-game").remove();
+  TimeOut(timer);
 };
 
 // Array From Cards
@@ -71,5 +76,31 @@ function flippedCard() {
         document.getElementById("field").play();
       }
     }, 1000);
+  }
+}
+
+// Create Time Out Count Function
+function TimeOut(count) {
+  // let textNode = document.createTextNode(count);
+  GetSpanTimer.innerHTML = count;
+
+  // console.log(count);
+  if (count > 0) {
+    setTimeout(() => {
+      TimeOut(count - 1);
+    }, 1000);
+  } else {
+    GetSpanTimer.innerHTML = "End Time";
+    GetSpanTimer.style.color = "#fff";
+    GetSpanTimer.style.backgroundColor = "#333";
+    getBlockGame.classList.add(`end-game`);
+
+    let divMassage = document.createElement("div");
+    let spanMassage = document.createElement("span");
+    divMassage.classList.add("control-game");
+    spanMassage.innerHTML = "End Game";
+    divMassage.append(spanMassage);
+    document.body.appendChild(divMassage);
+    spanMassage.addEventListener("click", (btnEnd) => location.reload());
   }
 }

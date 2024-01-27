@@ -57,6 +57,21 @@ header {
     padding: 15px;
   }
 }
+
+.time-out {
+  font-size: 25px;
+  text-align: center;
+  margin: 50px auto;
+  font-weight: bold;
+  width: 200px;
+}
+.time-out span {
+  color: #fff;
+  background-color: #ff8963;
+  padding: 15px;
+  border-radius: 6px;
+  display: block;
+}
 .game-blocks {
   width: 1080px;
   margin: 20px auto;
@@ -66,7 +81,8 @@ header {
   gap: 15px;
   flex-wrap: wrap;
 }
-.game-blocks.no-clicking {
+.game-blocks.no-clicking,
+.game-blocks.end-game {
   pointer-events: none;
 }
 
