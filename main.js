@@ -84,6 +84,14 @@ function TimeOut(count) {
   // let textNode = document.createTextNode(count);
   GetSpanTimer.innerHTML = count;
 
+  let getAllMatch = document.querySelectorAll(".is-matched");
+  console.log(cards.length);
+  // console.log(CountCorrect);
+
+  if (getAllMatch.length === cards.length) {
+    return EndGameMassage("You Win");
+  }
+
   // console.log(count);
   if (count > 0) {
     setTimeout(() => {
@@ -93,14 +101,18 @@ function TimeOut(count) {
     GetSpanTimer.innerHTML = "End Time";
     GetSpanTimer.style.color = "#fff";
     GetSpanTimer.style.backgroundColor = "#333";
-    getBlockGame.classList.add(`end-game`);
 
-    let divMassage = document.createElement("div");
-    let spanMassage = document.createElement("span");
-    divMassage.classList.add("control-game");
-    spanMassage.innerHTML = "End Game";
-    divMassage.append(spanMassage);
-    document.body.appendChild(divMassage);
-    spanMassage.addEventListener("click", (btnEnd) => location.reload());
+    EndGameMassage("End Game");
   }
+}
+
+function EndGameMassage(massage) {
+  getBlockGame.classList.add(`end-game`);
+  let divMassage = document.createElement("div");
+  let spanMassage = document.createElement("span");
+  divMassage.classList.add("control-game");
+  spanMassage.innerHTML = massage;
+  divMassage.append(spanMassage);
+  document.body.appendChild(divMassage);
+  spanMassage.addEventListener("click", () => location.reload());
 }
