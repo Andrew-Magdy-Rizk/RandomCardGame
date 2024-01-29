@@ -132,8 +132,8 @@ function Score() {
   getAllMatch = document.querySelectorAll(".is-matched");
   score = getAllMatch.length / 2;
   let topScore = +localStorage.getItem("score") + score;
-  massageScore = `The Score is: ${getAllMatch.length / 2}`;
-  massageTopScore = `The Top Score is: ${topScore}`;
+  massageScore = `Score is: ${getAllMatch.length / 2}`;
+  massageTopScore = `Top Score is: ${topScore}`;
   // console.log(score);
   document.querySelector(".score").innerHTML = massageScore;
   document.querySelector(".top-score").innerHTML = massageTopScore;
