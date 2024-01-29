@@ -8,7 +8,7 @@ document.querySelector(".tries span").innerHTML = tries;
 let getBlockGame = document.querySelector(".game-blocks");
 
 // Manager Timer
-timer = 70;
+timer = 60;
 let GetSpanTimer = document.querySelector(`.time-out span`);
 
 // Manager Start Game
@@ -75,7 +75,7 @@ function flippedCard() {
         document.querySelector(".tries span").innerHTML = tries;
         document.getElementById("field").play();
       }
-    }, 1000);
+    }, 500);
   }
 }
 
