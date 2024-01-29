@@ -81,18 +81,15 @@ function flippedCard() {
 
 // Create Time Out Count Function
 function TimeOut(count) {
-  // let textNode = document.createTextNode(count);
   GetSpanTimer.innerHTML = count;
 
   let getAllMatch = document.querySelectorAll(".is-matched");
-  console.log(cards.length);
-  // console.log(CountCorrect);
 
+  // If You Win
   if (getAllMatch.length === cards.length) {
     return EndGameMassage("You Win");
   }
 
-  // console.log(count);
   if (count > 0) {
     setTimeout(() => {
       TimeOut(count - 1);
@@ -106,13 +103,39 @@ function TimeOut(count) {
   }
 }
 
+// Function Massage
 function EndGameMassage(massage) {
+  // Block All Cards
   getBlockGame.classList.add(`end-game`);
+
+  // Creata Massage
   let divMassage = document.createElement("div");
   let spanMassage = document.createElement("span");
+  let SpanScore = document.createElement("span");
+  let topScore = document.createElement("span");
   divMassage.classList.add("control-game");
+  SpanScore.classList.add("score");
+  topScore.classList.add("top-score");
   spanMassage.innerHTML = massage;
+  divMassage.append(topScore);
   divMassage.append(spanMassage);
+  divMassage.append(SpanScore);
   document.body.appendChild(divMassage);
+
+  Score();
+  // Start New Game
   spanMassage.addEventListener("click", () => location.reload());
+}
+
+// Create Score Function
+function Score() {
+  getAllMatch = document.querySelectorAll(".is-matched");
+  score = getAllMatch.length / 2;
+  let topScore = +localStorage.getItem("score") + score;
+  massageScore = `The Score is: ${getAllMatch.length / 2}`;
+  massageTopScore = `The Top Score is: ${topScore}`;
+  // console.log(score);
+  document.querySelector(".score").innerHTML = massageScore;
+  document.querySelector(".top-score").innerHTML = massageTopScore;
+  localStorage.setItem("score", topScore);
 }

@@ -22,7 +22,6 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
   color: #222;
   font-size: 28px;
   font-weight: bold;
@@ -31,7 +30,16 @@ body {
   border-radius: 6px;
   transition: 0.3s;
 }
-.control-game span:hover {
+.control-game span.top-score {
+  top: 40%;
+}
+.control-game span.score {
+  top: 60%;
+}
+.control-game span:nth-child(2) {
+  cursor: pointer;
+}
+.control-game span:nth-child(2):hover {
   color: #fff;
   background-color: #222;
 }
