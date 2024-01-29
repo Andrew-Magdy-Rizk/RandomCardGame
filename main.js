@@ -8,7 +8,7 @@ document.querySelector(".tries span").innerHTML = tries;
 let getBlockGame = document.querySelector(".game-blocks");
 
 // Manager Timer
-timer = 100;
+timer = 70;
 let GetSpanTimer = document.querySelector(`.time-out span`);
 
 // Manager Start Game
